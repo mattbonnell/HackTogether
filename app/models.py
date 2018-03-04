@@ -17,6 +17,12 @@ class Language(BaseModel):
     def __str__(self):
         return self.name
 
+class Complexity(models.Model):
+    title = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
 
 class Tool(BaseModel):
     name = models.CharField(max_length=200)
@@ -78,7 +84,7 @@ class Project(BaseModel):
     developer_needed = models.BooleanField(default=False)
     domains = models.ManyToManyField(Domain)
     beginners_welcome = models.BooleanField(default=True)
-    complexity = models.CharField(max_length=200)
+    complexity = models.ForeignKey(Complexity, on_delete=models.CASCADE)
     estimated_duration = models.IntegerField()
     github_link = models.CharField(max_length=200, null=True, blank=True)
     tags = models.ManyToManyField(Tag, related_name='projects', blank=True)
