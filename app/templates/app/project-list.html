@@ -1,3 +1,43 @@
+<!-- Updated Table -->
 {% for project in project_list %}
-{{ project.name }}
+    <section>
+        <h3>Table</h3>
+        <h4>Alternate</h4>
+        <div class="table-wrapper" >
+            <table class="alt">
+                <thead>
+                    <tr>
+                        <th style="width:200px;">Name: </th>
+                        <th>{{ project.name }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width:200px;">Description: </td>
+                        <td>{{ project.description }}</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td style="width:200px;">Owner: </td>
+                        <td>{{ project.owner.first_name }}</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td style="width:200px;">Specialities Needed: </td>
+                        <td>{% for role in project.specialities_needed %}
+                            {{role
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td style="width:200px;">Complexity: </td>
+                        <td>{{ project.complexity }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
 {% endfor %}

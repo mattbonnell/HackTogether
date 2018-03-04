@@ -86,6 +86,7 @@ class Project(BaseModel):
     beginners_welcome = models.BooleanField(default=True)
     complexity = models.ForeignKey(Complexity, on_delete=models.CASCADE)
     estimated_duration = models.IntegerField()
+    completed = models.BooleanField(default=False)
     github_link = models.CharField(max_length=200, null=True, blank=True)
     tags = models.ManyToManyField(Tag, related_name='projects', blank=True)
 

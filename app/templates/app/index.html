@@ -1,44 +1,94 @@
-{% extends "app/base.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Axys</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+	</head>
+	<body class="landing">
 
-<div class="row">
-	<div class="col-lg-8 text-center">
-	  <h3 class="text-left">BROWSE RECENT COLLABS</h3>
-	  <div class="jumbotron">
-		<div class="container-8">
-				<h5 class="job-listing text-left">Sweet Dreams</h5>
-				<br>
-				<p class="job-description">create an account to view the details of this project!</p>
-				<i class="fas fa-tag float-left"></i>
-				<div class="float-right">
-					<i class="fas fa-user"></i>
-					<span class="members-dev">1</span>
-				</div>
-				<br>
-				<br>
+		<!-- Header -->
+			<header id="header">
+				<img src="img/logo.png" class="logo-pl" href="index.html" style="width:60px; height:auto;">
+				<nav id="nav" style="display:inline; top: 50px;">
+					
+						<a href="login page" class="button special nav-link">{{ login_button_text }}</a>
+						
+					
+				</nav>
+			</header>
 
-			<br>
-				<h5 class="job-listing text-left">Gameport</h5>
-				<br>
-				<p class="job-description">create an account to view the details of this project!</p>
-				<i class="fas fa-tag float-left"></i>
-				<div class="float-right">
-					<i class="fas fa-user"></i>
-					<span class="members-dev">2</span>
+		<!-- Banner -->
+			<section id="banner">
+				<h2 class="header"><span style="color:#DE2152">Looking for collaborative projects?</span></h2>
+				<p class="subheader">Collaborate with designers and developers to create intuitive solutions and <br> meaningful products that will jumpstart your career.</p>
+				<ul class="actions">
+					<li>
+						<a class="typeform-share button" href="https://jason1004.typeform.com/to/TFY0Ku" data-mode="drawer_right" style="display:inline-block;text-decoration:none;background-color:#DE2152;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:24px;line-height:60px;text-align:center;margin:0;height:60px;padding:0px 40px;border-radius:30px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" data-hide-headers=true data-hide-footer=true target="_blank">Get Started </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
+					</li>
+				</ul>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper style1 special">
+				<div class="container">
+					<header class="major">
+						<h2 class="white">About Us</h2>
+						<p class="white">We provide a platform where young and inexperienced designers and developers can connect and work on portfolio-worthy projects with the intention of self-improving and creating long-lasting collaborative relationships.</p>
+					</header>
+					<div class="row 150%">
+						<div class="4u 12u$(medium)">
+							<section class="box">
+								<i class="icon big rounded color1 fa-cloud"></i>
+								<h3>Search for projects you're interested in</h3>
+								<p>Axys allows you to find postings easily which relate to the skills and topics that interest you.</p>
+							</section>
+						</div>
+						<div class="4u 12u$(medium)">
+							<section class="box">
+								<i class="icon big rounded color6 fa-rocket"></i>
+								<h3>Gain experience working with teams</h3>
+								<p>Communicating with others is a valuable skill to have, especially in the creative industry. Use Axys as a platform to get comfortable working in teams.</p>
+							</section>
+						</div>
+						<div class="4u$ 12u$(medium)">
+							<section class="box">
+								<i class="icon big rounded color9 fa-desktop"></i>
+								<h3>Network and make valuable connections</h3>
+								<p>Meet others with similar interests and learn from the people you meet while collaborating on projects.</p>
+							</section>
+						</div>
+					</div>
 				</div>
-		</div>
-	  </div>
-	</div>
-	<div class="col-lg-4">
-	  <h3>ABOUT US</h3>
-		<div class="jumbotron">
-			<p class="description">We provide a platform where young and inexperienced designers &amp; developers can connec as well as work on portfolio-worthy projects with the intention of self-improving and creating long-lasting relationships. <br><br> If you have any questions or inquiries, feel free to shoot us an email or call. <br><br></p>
-				<i class="fas fa-phone"></i>
-				<span class="contact-info">+1 357 547 1275</span>
-				<br>
-				<i class="fas fa-envelope"></i>
-				<span class="contact-info">axys@inquiries.com</span>
-		</div>
-	</div>
-</div>
-{% endblock %}
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<section class="links">
+						<div class="row">
+							<section class="3u 6u(medium) 12u$(small)">
+								<h3>AXYS</h3>
+								<p class="white">is a platform for young designers and developers to connect and work on projects to strengthen their specialties and experience. <br> <br>&copy; AXYS 2018</p>
+							</section>
+							
+						
+						
+						</div>
+					</section>
+					
+
+	</body>
+</html>
