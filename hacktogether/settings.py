@@ -25,7 +25,7 @@ SECRET_KEY = '9lvfd_lr51o3&%p*a=tf3^it7#yzt@0ka#&3$!eh*e8fjxv6&('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ec2-34-230-47-100.compute-1.amazonaws.com']
 
 
 # Application definition
@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'hacktogether.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hacktogether',
-        'USER': 'Matt',
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'NAME': 'starterhacksdb',
+        'USER': 'jason',
+        'PASSWORD': 'Markanthony28$',
+        'HOST': 'starterhacksdb.czai8ry0q7za.us-east-1.rds.amazonaws.com',
         'PORT': '5432'
     }
 }
