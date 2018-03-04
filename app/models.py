@@ -49,7 +49,6 @@ class Speciality(BaseModel):
         return self.name
 
 
-
 class UserProfile(models.Model):
     # This line is required. Links UserProfile to a User model instance.
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -63,6 +62,7 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
+
 
 class Project(BaseModel):
     name = models.CharField(max_length=200)
