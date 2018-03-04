@@ -35,7 +35,7 @@ class ProjectDetailView(DetailView):
 
 def project_list_view(request):
 
-    user_profile = UserProfile.objects.get(user__id=request.user.id)
+    user_profile = UserProfile.objects.get(user_id=request.user.id)
 
     if user_profile.is_developer:
         project_list = list(Project.objects.filter(developer_needed=True))
