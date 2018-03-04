@@ -47,7 +47,7 @@ def project_list_view(request):
     return render(request, 'app/project-list.html', context)
 
 
-def profile_detail_view(request):
+def profile_detail_view(request, profile_id):
 
     user_profile = UserProfile.objects.get(user__id=request.user.id)
 
