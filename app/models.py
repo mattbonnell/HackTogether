@@ -17,6 +17,7 @@ class Language(BaseModel):
     def __str__(self):
         return self.name
 
+
 class Complexity(models.Model):
     level = models.CharField(max_length=200)
 
