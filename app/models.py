@@ -48,12 +48,15 @@ class Speciality(BaseModel):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name_plural = "specialties"
+
 
 class UserProfile(models.Model):
     # This line is required. Links UserProfile to a User model instance.
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    is_developer = models.BooleanField(default=False)
-    is_designer = models.BooleanField(default=False)
+    is_developer = models.BooleanField(default=False, verbose_name="is a developer")
+    is_designer = models.BooleanField(default=False, verbose_name="is a designer")
     age = models.IntegerField()
     specialties = models.ManyToManyField(Speciality)
     interested_in_domains = models.ManyToManyField(Domain, blank=True)
@@ -62,7 +65,6 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username
-
 
 class Project(BaseModel):
     name = models.CharField(max_length=200)
