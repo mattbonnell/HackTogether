@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
 
+
 # Create your models here.
 class BaseModel(models.Model):
     created_date = models.DateTimeField(auto_now_add=True, default=datetime.today())
@@ -10,26 +11,30 @@ class BaseModel(models.Model):
     class Meta:
         abstract = True
 
+
 class Skill(BaseModel):
     name = models.CharField(max_length=200)
     experience_level = models.CharField(max_length=200)
     years_of_experience = models.IntegerField(max_length=200)
 
-    def __unicode__(self):
-        return unicode(self.name)
+    def __str__(self):
+        return self.name
+
 
 class Interest(BaseModel):
     name = models.CharField(max_length=200)
 
-    def __unicode__(self):
-        return unicode(self.name)
+    def __str__(self):
+        return self.name
+
 
 class Tag(BaseModel):
     word = models.CharField(max_length=35)
     slug = models.CharField(max_length=250)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.word
+
 
 class UserProfile(BaseModel):
     # This line is required. Links UserProfile to a User model instance.
@@ -41,22 +46,23 @@ class UserProfile(BaseModel):
     interests = models.ManyToManyField(Interest, null=True)
 
 
-    # Override the __unicode__() method to return out something meaningful!
-    def __unicode__(self):
+    def __str__(self):
         return self.user.username
 
 
 class Role(BaseModel):
     name = models.CharField(max_length=200)
 
-    def __unicode__(self):
-        return unicode(self.name)
+    def __str__(self):
+        return self.name
+
 
 class Domain(BaseModel):
     name = models.CharField(max_length=200)
 
-    def __unicode__(self):
-        return unicode(self.name)
+    def __str__(self):
+        return self.name
+
 
 class Project(BaseModel):
     name = models.CharField(max_length=200)
@@ -72,13 +78,5 @@ class Project(BaseModel):
     github_link = models.CharField(max_length=200, default='')
     tags = models.ManyToManyField(Tag, related_name='projects')
 
-    def __unicode__(self):
-        return unicode(self.name)
-
-class Profile(models.Model):
-    user = models.ForeignKey(User)
-    oauth_token = models.CharField(max_length=200)
-    oauth_secret = models.CharField(max_length=200)
-
-    def __unicode__(self):
-        return unicode(self.user)
+    def __str__(self):
+        return self.name
