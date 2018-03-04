@@ -12,17 +12,15 @@
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
 		{% load static %}
-		<noscript>
 			<link rel="stylesheet" href="{% static 'app/skel.css' %}" />
 			<link rel="stylesheet" href="{% static 'app/style.css' %}" />
 			<link rel="stylesheet" href="{% static 'app/style-xlarge.css' %}" />
-		</noscript>
 	</head>
 	<body class="landing">
 
 		<!-- Header -->
 			<header id="header">
-				<img src="img/logo.png" class="logo-pl" href="index.html" style="width:60px; height:auto;">
+				<img src="{% static 'app/logo.png' %}" class="logo-pl" href="index.html" style="width:60px; height:auto;">
 				<nav id="nav" style="display:inline; top: 50px;">
 					
 						<a href="{% url 'profile-detail' profile_id=1 %}" class="button special nav-link">Hello, John</a>
@@ -32,7 +30,7 @@
 
 		<!-- Banner -->
 			<section id="banner">
-				<h2 class="header"><span style="color:#DE2152">Looking for collaborative projects?</span></h2>
+				<h2 class="header" background-image="{% static 'app/bg-2.jpg' %}"><span color="#DE2152">Looking for collaborative projects?</span></h2>
 				<p class="subheader">Collaborate with designers and developers to create intuitive solutions and <br> meaningful products that will jumpstart your career.</p>
 				<ul class="actions">
 					<li>
