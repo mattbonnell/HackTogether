@@ -18,13 +18,18 @@ class ProjectDetailView(DetailView):
         return context
 
 
-class ProjectListView(ListView):
+def project_list_view(request):
 
-    model = Project
+    user_profile = UserProfile.objects.get(user__id=request.user.id)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
+    if user_profile.is_developer:
+        project_list = list(Project.objects.filter(developer_needed=True))
+    else:
+        project_list = list(Project.objects.filter(designer_needed=True))
+
+    context = {'project_list': project_list}
+
+    return render(request, 'app/project-list.html', context)
 
 
 class ProfileDetailView(DetailView):
@@ -34,5 +39,3 @@ class ProfileDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
-
-
