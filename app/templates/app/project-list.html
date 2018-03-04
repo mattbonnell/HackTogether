@@ -27,7 +27,8 @@
                     <tr>
                         <td style="width:200px;">Specialities Needed: </td>
                         <td>{% for role in project.specialities_needed %}
-                            {{role
+                            <span>{{ role }}, </span>
+                            {% endfor %}
                         </td>
                     </tr>
                 </tbody>
