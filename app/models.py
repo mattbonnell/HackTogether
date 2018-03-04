@@ -1,27 +1,24 @@
 from django.db import models
 from django.contrib.auth.models import User
-from datetime import datetime
 
 
 # Create your models here.
 class BaseModel(models.Model):
-    created_date = models.DateTimeField(auto_now_add=True, default=datetime.today())
-    modified_date = models.DateTimeField(auto_now=True, default=datetime.today())
+    created_date = models.DateTimeField(auto_now_add=True)
+    modified_date = models.DateTimeField(auto_now=True)
 
     class Meta:
         abstract = True
 
 
-class Skill(BaseModel):
+class Language(BaseModel):
     name = models.CharField(max_length=200)
-    experience_level = models.CharField(max_length=200)
-    years_of_experience = models.IntegerField(max_length=200)
 
     def __str__(self):
         return self.name
 
 
-class Interest(BaseModel):
+class Tool(BaseModel):
     name = models.CharField(max_length=200)
 
     def __str__(self):
@@ -36,27 +33,6 @@ class Tag(BaseModel):
         return self.word
 
 
-class UserProfile(BaseModel):
-    # This line is required. Links UserProfile to a User model instance.
-    user = models.OneToOneField(User)
-    first_name = models.CharField(max_length=200, default='John')
-    last_name = models.CharField(max_length=200, default='Doe')
-    age = models.IntegerField(max_length=200, default=99)
-    skills = models.ManyToManyField(Skill, null=True)
-    interests = models.ManyToManyField(Interest, null=True)
-
-
-    def __str__(self):
-        return self.user.username
-
-
-class Role(BaseModel):
-    name = models.CharField(max_length=200)
-
-    def __str__(self):
-        return self.name
-
-
 class Domain(BaseModel):
     name = models.CharField(max_length=200)
 
@@ -64,19 +40,46 @@ class Domain(BaseModel):
         return self.name
 
 
+class Speciality(BaseModel):
+    name = models.CharField(max_length=200)
+    is_developer_speciality = models.BooleanField(default=False)
+    is_designer_speciality = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+
+
+
+class UserProfile(models.Model):
+    # This line is required. Links UserProfile to a User model instance.
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    is_developer = models.BooleanField(default=False)
+    is_designer = models.BooleanField(default=False)
+    age = models.IntegerField()
+    specialties = models.ManyToManyField(Speciality)
+    interested_in_domains = models.ManyToManyField(Domain, blank=True)
+    languages = models.ManyToManyField(Language, blank=True)
+    tools = models.ManyToManyField(Tool, blank=True)
+
+    def __str__(self):
+        return self.user.username
+
 class Project(BaseModel):
     name = models.CharField(max_length=200)
-    description = models.TextField(max_length=2000)
-    owner = models.ForeignKey(User, related_name='projects_owned')
+    description = models.TextField(max_length=10000)
+    owner = models.ForeignKey(User, related_name='projects_owned', on_delete=models.CASCADE)
     team = models.ManyToManyField(User, related_name='projects_involved_in')
     completion_deadline = models.DateField(null=True, blank=True)
-    talentNeeded = models.ManyToManyField(Role)
+    are_members_needed = models.BooleanField(default=True)
+    specialities_needed = models.ManyToManyField(Speciality)
+    designer_needed = models.BooleanField(default=True)
+    developer_needed = models.BooleanField(default=True)
     domains = models.ManyToManyField(Domain)
     beginners_welcome = models.BooleanField(default=True)
     complexity = models.CharField(max_length=200)
-    estimated_duration = models.IntegerField(max_length=200)
-    github_link = models.CharField(max_length=200, default='')
-    tags = models.ManyToManyField(Tag, related_name='projects')
+    estimated_duration = models.IntegerField()
+    github_link = models.CharField(max_length=200, null=True, blank=True)
+    tags = models.ManyToManyField(Tag, related_name='projects', blank=True)
 
     def __str__(self):
         return self.name
