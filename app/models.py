@@ -64,6 +64,8 @@ class UserProfile(models.Model):
     is_developer = models.BooleanField(default=False, verbose_name="is a developer")
     is_designer = models.BooleanField(default=False, verbose_name="is a designer")
     age = models.IntegerField()
+    bio = models.TextField(null=True)
+    website = models.CharField(max_length=200, null=True)
     specialties = models.ManyToManyField(Speciality)
     interested_in_domains = models.ManyToManyField(Domain, blank=True)
     languages = models.ManyToManyField(Language, blank=True)

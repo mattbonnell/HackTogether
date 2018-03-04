@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 	<head>
-        <title>AXYS - Marc Li</title>
+        <title>AXYS - {{ request.user.first_name }} {{ request.user.last_name }}</title>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -37,7 +37,7 @@
 
 <div class="col-4 mail"> <i class="fas fa-envelope"style="color: #FF6464"></i>
 
-marcli@gmail.com</div>
+{{ request.user.email }}</div>
 <div class="col-4 link"><i class="fas fa-link"style="color: #FF6464"></i>
 
     https://marc.li.com</div></div> </header>
@@ -53,12 +53,12 @@ marcli@gmail.com</div>
                         <h1 style="font-size: 1em;" style="color: #FF6464" box-shadow="5px 10px;">INTRODUCTION</h1><br>
 
 
-                        <p>Hi, I'm Marc! I'm a UX/UI designer interested in front-end web development - I hope to gain experience in working with teams and strengthen my communications skills. I look forward to collaborating!</p><br><br>
+                        <p>{{ user_profile.bio }}</p><br><br>
 
                        <div class="row">
 <div class="col-6 involved">
 <h1 style="font-size: 1em;" style="color: #FF6464">CURRENT PROJECTS</h1><br>
-{% for project in userprofile.projects_involved_in %}
+{% for project in user_profile.projects_involved_in %}
 <div class="Arto"><h1 style="font-size: 1em;" >{{ project.name }}</h1><p>{{ project.description }}</p>
 <div class="row"><p class="col-6 people"><i class="fas fa-user"></i>{{ project.team.count() }}</p>
     <a class="col-5 View" style="color: #FF6464" href="***">View Project</a></div></div>

@@ -24,9 +24,8 @@
 				<img src="img/logo.png" class="logo-pl" href="index.html" style="width:60px; height:auto;">
 				<nav id="nav" style="display:inline; top: 50px;">
 					
-						<a href="login page" class="button special nav-link">{{ login_button_text }}</a>
+						<a href="{% url 'profile-detail' profile_id=user.id %}" class="button special nav-link">{{ login_button_text }}</a>
 						
-					
 				</nav>
 			</header>
 

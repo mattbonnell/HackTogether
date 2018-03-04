@@ -23,10 +23,13 @@ class ProjectDetailView(DetailView):
 
     context_object_name = "project"
 
-    members_string = ''
+   # num_of_developers_needed = object.specialities_needed.filter(is_developer_speciality=True).count()
+   # num_of_designers_needed = object.specialities_needed.filter(is_designer_speciality=False).count()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+       # context['num_of_developers_needed'] = self.num_of_developers_needed
+       # context['num_of_designers_needed'] = self.num_of_designers_needed
         return context
 
 
@@ -44,14 +47,10 @@ def project_list_view(request):
     return render(request, 'app/project-list.html', context)
 
 
-class ProfileDetailView(DetailView):
+def profile_detail_view(request):
 
-    model = UserProfile
+    user_profile = UserProfile.objects.get(user__id=request.user.id)
 
-    template_name = 'app/profile-detail.html'
+    context = {'user_profile': user_profile}
 
-    context_object_name = 'userprofile'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
+    return render(request, 'app/profile-detail.html', context)

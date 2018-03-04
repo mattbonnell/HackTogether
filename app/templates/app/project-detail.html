@@ -21,27 +21,22 @@
 
         <div class="wrapper">
 
-            <!-- Profile Info -->
-            <div class="profile-area">
+            <!-- Project Info -->
+            <div class="project-area">
 
                 <!-- Header (Sidebar on desktop) -->
 
+								<div class="button-large"> <button type="button" class="btn">Request to Join</button><br>
+
+
                 <header>
-                           <h1 class="no-spacer" style="color: #FF6464">Marc Li</h1>
-                    <h2 class="no-spacer">Designer - UX/UI</h2><br>
-                    <img src="sung-wang-209324-unsplash.jpg" alt="Profile image" /><br> <br><br>
-
-                  <div class="row"><div class="col-4 phonenumber"><i class="fas fa-phone" style="color: #FF6464"></i>
-
-+1 421 636 8794</div> <br>
-
-<div class="col-4 mail"> <i class="fas fa-envelope"style="color: #FF6464"></i>
-
-marcli@gmail.com</div>
-<div class="col-4 link"><i class="fas fa-link"style="color: #FF6464"></i>
-
-    https://marc.li.com</div></div> </header>
+                    <h1 class="no-spacer" style="color: #FF6464">{{ project.name }}</h1>
 </div>
+           </header>
+
+					 <header>
+					 <h1 style="font-size: 1em;" style="color: #FF6464"><strong>Owner:</strong> {{ project.owner }}</h1>
+				 </header>
 
             </div>
 
@@ -50,28 +45,35 @@ marcli@gmail.com</div>
                 <main>
                     <article>
                         <div style="margin-left: 15px; margin-right: 15px">
-                        <h1 style="font-size: 1em;" style="color: #FF6464" box-shadow="5px 10px;">INTRODUCTION</h1><br>
+                        <h1 style="font-size: 1em;" style="color: #FF6464"><strong>Details: </strong></h1>
 
 
-                        <p>Hi, I'm Marc! I'm a UX/UI designer interested in front-end web development - I hope to gain experience in working with teams and strengthen my communications skills. I look forward to collaborating!</p><br><br>
+                        <p>{{ project.description }}</p><br>
 
                        <div class="row">
 <div class="col-6 involved">
-<h1 style="font-size: 1em;" style="color: #FF6464">CURRENT PROJECTS</h1><br>
-<div class="Arto"><h1 style="font-size: 1em;" >Arto Life Wtr</h1><p>This project focuses on the commercialization of purified water.</p>
-<div class="row"><p class="col-6 people"><i class="fas fa-user"></i> 3</p>
-<a class="col-5 View" style="color: #FF6464" href="***">View Project</a></div>
-<div class="Arto"><h1 style="font-size: 1em;">Averus</h1><p>Averus is a mobile-app project to provide youth with practical advice on ways to approach design careers</p>
-<div class="row"><p class="col-6 people"><i class="fas fa-user"></i> 2</p>
-<a class="col-5 View"style="color: #FF6464" href="***">View Project</a></div></div>
+<h1 style="font-size: 1em;" style="color: #FF6464"><strong>Project Requirements: </strong></h1>
+<div class="Arto"><h1 style="font-size: 1em;" >Developers: 2</h1><p></p>
+<div class="Arto"><h1 style="font-size: 1em;" >Designers: 1</h1><p></p>
+<div class="row"> <p class="col-5 View"> Current Members</p>
+	<p class="col-6 people"><i class="fas fa-user"></i> 3</p>
+</div> </div> </div> </div>
+<div class="col-6 Arto"><h1 style="font-size: 1em;"><strong>Location:</strong></h1><p>Waterloo, Ontario</p>
+<div class="row"><p>&nbsp;&nbsp;&nbsp;Complexity Level: 2</p>
+<p class="col-6 View">Completed: False</p>
 </div></div>
-<div class="col-6 Completed Projects">
-<h1 style="font-size: 1em;" style="color: #FF6464">COMPLETED PROJECTS</h1><br>
-<p style="font-size: 1em;" >Typo Region</p>
-<p >typography, web, UX/UI</p>
 </div>
+
+<div class= "row">
+<p class="button-large"> <button type="button" class="btn">Web</button>
+</p>
+<p class="button-large"> <button type="button" class="btn">iOS</button>
+</p>
+<p class="button-large"> <button type="button" class="btn">UX/UI</button>
+
 </div>
-                  <br> <br> <br>
+</p>
+</div>
 
 
 
@@ -80,7 +82,7 @@ marcli@gmail.com</div>
                         <div class="row footer">
 <div class="centerfooter" >
     <div class="row">
-    <div class="col-xs-12 col-sm-7 col-lg-5 info" style="padding:0px; text-align: left">
+    <div class="col-xs-12 col-sm-7 col-lg-5 info" style="padding:0px;">
         <p>AXYS is a platform meant for young designers and developers to connect and work on projects to strengthen their specialties and experience.
             <br><br> © AXYS </p>
     </div>
