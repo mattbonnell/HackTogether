@@ -49,7 +49,7 @@ def project_list_view(request):
 
 def profile_detail_view(request, profile_id):
 
-    user_profile = UserProfile.objects.get(user__id=request.user.id)
+    user_profile = UserProfile.objects.get(user_id=request.user.id)
 
     context = {'user_profile': user_profile}
 
