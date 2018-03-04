@@ -38,6 +38,12 @@
                         <td>{{ project.complexity }}</td>
                     </tr>
                 </tbody>
+                <tbody>
+                    <tr>
+                        <td style="width:200px;">View</td>
+                        <td><a href="{% url 'project-detail' project_id=project.id %}"</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </section>
